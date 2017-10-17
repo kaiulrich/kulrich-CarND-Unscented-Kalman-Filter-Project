@@ -62,11 +62,11 @@ I mostly followed the instructions from the UKF class materials. The only specia
 ---
 ## 3. Results
 
-### 1. RMSE
-|   Metric   |Dataset 1 RMSE |
-|:----------:|:-------------:|
-|  px        |      0.075    | 
-|  py        |      0.083    | 
-|  vx        |      0.389    |
-|  vy        |      0.236    |
+####   px, py, vx, vy output coordinates must have an RMSE<= [.09, .10, .40, .30] when using the file: "obj_pose-laser-radar-synthetic-input.txt"
+* I ran my algorithm against two data sets. On Data set 1 I have recorded values and analyzed them using python script from `CarND-Mercedes-SF-Utilities`. There is a very powerfull tool to visalize the data [plot.ly](https://plot.ly). Feel free too test it.
 
+|  | Dataset 1                     | Dataset 2                 |
+|-----|---------------------------|---------------------------|
+| RMSE | px: 0.0964425, py: 0.0852905, vx: 0.415426, vy: 0.431636 | px: 0.0725678, py: 0.0964738, vx: 0.421634, vy: 0.493199 |
+| Track (klick to watch) | [![E](https://img.youtube.com/vi/LqPwKTU3QyY/0.jpg)](https://youtu.be/LqPwKTU3QyY "Dataset 1")| [![E](https://img.youtube.com/vi/NxXlZ3zOjZs/0.jpg)](https://youtu.be/NxXlZ3zOjZs "Dataset 2") |
+| Analyse (klick for details) | [![E](data_1.png)](https://plot.ly/~kulrich/1.embed "Dataset 1") | [![E](data_2.png)](https://plot.ly/~kulrich/3.embed "Dataset 2") |
