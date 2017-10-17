@@ -65,6 +65,7 @@ I mostly followed the instructions from the UKF class materials. The only specia
 
 ####   px, py, vx, vy output coordinates must have an RMSE<= [.09, .10, .40, .30] when using the file: "obj_pose-laser-radar-synthetic-input.txt"
 * I ran my algorithm against two data sets. On Data set 1 I have recorded values and analyzed them using python script from `CarND-Mercedes-SF-Utilities`. There is a very powerfull tool to visalize the data [plot.ly](https://plot.ly). Feel free too test it.
+* NIS plots show the NIS is mostly below 95% line, which shows the filter is very consistent. The parameters are set properly so that we correctly estimate the uncertainty of the system.
 
 |  | Dataset 1                     | Dataset 2                 |
 |-----|---------------------------|---------------------------|
