@@ -61,7 +61,7 @@ I mostly followed the instructions from the UKF class materials. The only specia
 
 ---
 ## 3. Results
-
+ 
 
 ####   px, py, vx, vy output coordinates must have an RMSE<= [.09, .10, .40, .30] when using the file: "obj_pose-laser-radar-synthetic-input.txt"
 * I ran my algorithm against two data sets. On Data set 1 I have recorded values and analyzed them using python script from `CarND-Mercedes-SF-Utilities`. There is a very powerfull tool to visalize the data [plot.ly](https://plot.ly). Feel free too test it.
@@ -71,3 +71,5 @@ I mostly followed the instructions from the UKF class materials. The only specia
 | RMSE | px: 0.0752735, py: 0.0826372, vx: 0.388804, vy: 0.235533 | px: 0.0744176, py: 0.0740475, vx: 0.383008, vy: 0.227252 |
 | Track (klick to watch) | [![E](https://img.youtube.com/vi/NAC67y9UfU0/0.jpg)](https://youtu.be/NAC67y9UfU0 "Dataset 1")| [![E](https://img.youtube.com/vi/losWfdkJ2Cc/0.jpg)](https://youtu.be/losWfdkJ2Cc "Dataset 2") |
 | Analyse (klick for details) | [![E](img/plot_1.png)](https://plot.ly/~kulrich/5.embed "Dataset 1") | [![E](img/plot_2.png)](https://plot.ly/~kulrich/11.embed "Dataset 2") |
+| NIS Radar (klick for details) | [![E](img/nis_radar_1.png)](https://plot.ly/~kulrich/23.embed "Dataset 1") | [![E](img/nis_radar_2.png)](https://plot.ly/~kulrich/27.embed "Dataset 2") |
+| NIS Laser (klick for details) | [![E](img/nis_laser_1.png)](https://plot.ly/~kulrich/25.embed "Dataset 1") | [![E](img/nis_laser_2.png)](https://plot.ly/~kulrich/29.embed "Dataset 2") | 
