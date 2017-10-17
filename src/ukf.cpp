@@ -70,7 +70,11 @@ UKF::UKF() {
 
   NIS_radar_ = 0;
 
-  NIS_logfile_.open("NIS_log.txt");
+  target_NIS_radar = 7.815;
+  target_NIS_laser = 5.991;
+
+  NIS_laser_logfile_.open("NIS_laser_log.txt");
+  NIS_radar_logfile_.open("NIS_radar_log.txt");
 }
 
 UKF::~UKF() {}
@@ -327,7 +331,7 @@ void UKF::UpdateLidar(MeasurementPackage meas_package) {
   //Calculate LiDAR NIS
   NIS_laser_ = z_diff.transpose() * S.inverse() * z_diff;
 
-  NIS_logfile_ << NIS_laser_ << std::endl;
+  NIS_laser_logfile_ << NIS_laser_ << "\t" << target_NIS_laser << std::endl;
 }
 
 /**
@@ -418,6 +422,6 @@ void UKF::UpdateRadar(MeasurementPackage meas_package) {
   //Calculate LiDAR NIS
   NIS_radar_ = z_diff.transpose() * S.inverse() * z_diff;
 
-  NIS_logfile_ << NIS_radar_ << std::endl;
+  NIS_radar_logfile_  << NIS_radar_ << "\t" <<  target_NIS_radar << std::endl;
 
 }

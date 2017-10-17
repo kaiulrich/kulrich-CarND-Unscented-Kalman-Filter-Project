@@ -72,8 +72,11 @@ public:
 
   double NIS_radar_;
 
-  std::ofstream NIS_logfile_;
+  std::ofstream NIS_radar_logfile_;
+  std::ofstream NIS_laser_logfile_;
 
+  double target_NIS_radar;
+  double target_NIS_laser;
 
   /**
    * Constructor
