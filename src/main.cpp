@@ -10,6 +10,8 @@ using namespace std;
 // for convenience
 using json = nlohmann::json;
 
+ofstream logfile;
+
 // Checks if the SocketIO event has JSON data.
 // If there is data the JSON object in string format will be returned,
 // else the empty string "" will be returned.
@@ -28,6 +30,7 @@ std::string hasData(std::string s) {
 
 int main()
 {
+  logfile.open("log.txt");
   uWS::Hub h;
 
   // Create a Kalman Filter instance
@@ -90,7 +93,7 @@ int main()
           		iss >> timestamp;
           		meas_package.timestamp_ = timestamp;
           }
-          float x_gt;
+       float x_gt;
     	  float y_gt;
     	  float vx_gt;
     	  float vy_gt;
@@ -139,6 +142,26 @@ int main()
           auto msg = "42[\"estimate_marker\"," + msgJson.dump() + "]";
           // std::cout << msg << std::endl;
           ws.send(msg.data(), msg.length(), uWS::OpCode::TEXT);
+
+
+		//-- LOGGING ---------
+          logfile << ukf.x_(0) << "\t" << ukf.x_(1) << "\t" << ukf.x_(2) << "\t" << ukf.x_(3) << "\t" ;
+          if (sensor_type.compare("L") == 0)
+          {
+            logfile << meas_package.raw_measurements_(0) << "\t" << meas_package.raw_measurements_(1) << "\t";
+          }
+          else if (sensor_type.compare("R") == 0)
+          {
+            float rho = meas_package.raw_measurements_(0);
+            float phi = meas_package.raw_measurements_(1);
+            float rho_dot = meas_package.raw_measurements_(2);
+            float px = rho * cos(phi);
+            float py = rho * sin(phi);
+            logfile << px << "\t" << py << "\t";
+          }
+          logfile << gt_values(0) << "\t" << gt_values(1) << "\t" << gt_values(2) << "\t" << gt_values(3) << "\t";
+          logfile << RMSE(0) <<"\t"  << RMSE(1) <<"\t" <<  RMSE(2) <<"\t"  << RMSE(3) << endl;
+          //---------------------
 	  
         }
       } else {

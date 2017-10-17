@@ -68,6 +68,13 @@ public:
   double lambda_;
 
 
+  double NIS_laser_;
+
+  double NIS_radar_;
+
+  std::ofstream NIS_logfile_;
+
+
   /**
    * Constructor
    */
